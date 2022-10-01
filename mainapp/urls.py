@@ -11,4 +11,5 @@ urlpatterns = [
     path('doc/', DocPage.as_view(), name='docs'),
     path('contacts/', ContactsPage.as_view(), name='contacts'),
     path('news/', NewsPage.as_view(), name='news'),
+    path('news/<int:pk>/', NewsDetailsPageView.as_view(), name='news_details')
 ]
