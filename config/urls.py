@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
 
+from authapp.apps import AuthappConfig
 from mainapp.apps import MainappConfig
 
 urlpatterns = [
     path('', RedirectView.as_view(url='mainapp/')),
     path('admin/', admin.site.urls),
+    # path('social_auth/', include("social_django.urls", namespace='social')),
     path('mainapp/', include('mainapp.urls', namespace=MainappConfig.name)),
+    path('authapp/', include('authapp.urls', namespace=AuthappConfig.name)),
 ]

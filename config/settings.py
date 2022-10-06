@@ -59,14 +59,14 @@ TEMPLATES = [
         'DIRS': [
             BASE_DIR / 'templates',
             'mainapp/templates/mainapp',
-            'authapp/templates/authapp',
-
+            'authapp/templates/registration',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.media',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -108,6 +108,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = "authapp.CustomUser"
 
+LOGIN_REDIRECT_URL = "mainapp:main"
+LOGOUT_REDIRECT_URL = "mainapp:main"
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -133,3 +138,9 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Media files
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+

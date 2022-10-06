@@ -13,7 +13,11 @@
                 <ul class="list-unstyled">
                     <li><a href="/">Домашняя</a></li>
                     <li><a href="/mainapp/news/">Новости</a></li>
-                    <li><a href="/mainapp/login/">Войти</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'authapp:logout' %}">Выйти</a></li>
+                    {% else %}
+                    <li><a href="{% url 'authapp:login' %}">Войти</a></li>
+                    {% endif %}
                 </ul>
                 </p>
             </div>

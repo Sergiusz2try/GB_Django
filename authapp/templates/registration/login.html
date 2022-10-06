@@ -1,8 +1,10 @@
-{% extends 'mainapp/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
 <body>
+
+{% include 'components/messages.html' %}
 
 <div class="row justify-content-around align-items-center" style="height: 100vh; margin: 0px">
   <div class="text-center">
@@ -10,20 +12,29 @@
       <a href="/"><img src='{% static "/img/logo.png" %}' alt=""></a>
     </p>
     <h2>Вход пользователя</h2>
-    <form>
+    <form method="POST">
+      {% csrf_token %}
       <p>
-        <input id="id_username" class="form-control" type="text" name="username" placeholder="Имя пользователя"
-          required="" autofocus="">
+        <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150"
+               class="textinput textInput form-control" required="" id="id_username" placeholder="Username">
       </p>
       <p>
-        <input id="id_password" class="form-control" type="password" name="password" placeholder="Пароль" required="">
+        <input type="password" name="password" autocomplete="current-password" class="textinput textInput form-control"
+               required="" id="id_password" placeholder="Password">
       </p>
       <p>
         <button type="submit" class="btn btn-primary btn-block">Войти</button>
       </p>
     </form>
-    <p class="text-right">
-      <a href=""><small>Забыли пароль?</small></a>
+    <p>
+    <div class="row justify-content-between">
+      <div class="col">
+        <a href="{% url 'authapp:register' %}"><small>Регистрация</small></a>
+      </div>
+      <div class="col">
+        <a href=""><small>Забыли пароль?</small></a>
+      </div>
+    </div>
     </p>
     <h4>Вход через социальные сети</h4>
     <p>

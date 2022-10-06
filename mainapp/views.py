@@ -9,7 +9,7 @@ from django.views.generic import TemplateView
 
 
 class IndexPage(TemplateView):
-    template_name = 'index.html'
+    template_name = 'main.html'
 
 
 class ContactsPage(TemplateView):
@@ -18,10 +18,6 @@ class ContactsPage(TemplateView):
 
 class DocPage(TemplateView):
     template_name = 'doc_site.html'
-
-
-class LoginPage(TemplateView):
-    template_name = 'login.html'
 
 
 class NewsPage(TemplateView):
@@ -73,5 +69,5 @@ class CoursesPage(TemplateView):
         return context
 
 
-class IndexPage(TemplateView):
-    template_name = 'index.html'
+class MainPage(TemplateView):
+    template_name = 'main.html'

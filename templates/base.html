@@ -21,6 +21,10 @@
 </head>
 
 <body>
+    {% block messages %}
+        {% include 'components/messages.html' %}
+    {% endblock messages %}
+
 
     {% block content %}
 
@@ -38,7 +42,18 @@
     <!-- FontAwesome -->
     <script src={% static "/js/fontawesome.all.min.js" %}></script>
 
+    {% block js %}
+        <script>
+            $(document).ready(function () {
 
+                {% if messages %}
+                $(".toast").toast({ delay: 5000 });
+                $(".toast").toast("show");
+                {% endif %}
+
+            });
+        </script>
+    {% endblock js %}
 
 </body>
 
