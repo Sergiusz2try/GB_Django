@@ -10,7 +10,7 @@
         
         {% for p in page %}
             <div class="card col-sm-12 col-md-6 col-lg-4 border-0">
-            <a href="#">
+            <a href="{% url 'mainapp:courses_detail' pk=p.pk %}">
                 <img src='{% static p.cover %}' class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title text-center">{{ p.name }}</h5>

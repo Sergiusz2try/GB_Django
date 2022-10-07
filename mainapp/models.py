@@ -1,5 +1,7 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from mainapp.managers.news_manager import NewsManager
+from django.utils.translation import gettext_lazy as _
 
 
 class News(models.Model):
@@ -23,6 +25,10 @@ class News(models.Model):
         editable=False
     )
     deleted = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = _("News")
+        verbose_name_plural = _("News")
 
     def __str__(self):
         return self.title
@@ -67,6 +73,10 @@ class Courses(models.Model):
         verbose_name='updated'
     )
 
+    class Meta:
+        verbose_name = _("Course")
+        verbose_name_plural = _("Courses")
+
     def __str__(self):
         return self.name
 
@@ -95,6 +105,10 @@ class Lessons(models.Model):
         verbose_name='updated'
     )
 
+    class Meta:
+        verbose_name = _("Lesson")
+        verbose_name_plural = _("Lessons")
+
     def __str__(self):
         return f'{self.title}: {self.description}'
 
@@ -105,5 +119,23 @@ class Teachers(models.Model):
     day_birth = models.DateField(verbose_name='day_birth')
     course = models.TextField(null=True, verbose_name='course')
 
+    class Meta:
+        verbose_name = _("Teacher")
+        verbose_name_plural = _("Teachers")
+
     def __str__(self):
         return f'{self.name_first}  {self.name_second}'
+
+
+class CourseFeedback(models.Model):
+    RATING = ((5, "⭐⭐⭐⭐⭐"), (4, "⭐⭐⭐⭐"), (3, "⭐⭐⭐"), (2, "⭐⭐"), (1, "⭐"))
+    course = models.ForeignKey(Courses, on_delete=models.CASCADE, verbose_name=_("Course"))
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, verbose_name=_("User"))
+    feedback = models.TextField(default=_("No feedback"), verbose_name=_("Feedback"))
+    rating = models.SmallIntegerField(choices=RATING, default=5, verbose_name=_("Rating"))
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Created")
+    deleted = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.course} ({self.user})"
+
