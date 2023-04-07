@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from authapp.apps import AuthappConfig
 from mainapp.apps import MainappConfig
@@ -27,3 +28,5 @@ urlpatterns = [
     path('mainapp/', include('mainapp.urls', namespace=MainappConfig.name)),
     path('authapp/', include('authapp.urls', namespace=AuthappConfig.name)),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
