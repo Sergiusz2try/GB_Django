@@ -1,0 +1,47 @@
+[
+  {
+    "fields": {
+      "body": "╤ЄрэфрЁЄэр  эютюёЄ№",
+      "body_as_markdown": false,
+      "create_date": "2022-09-30T10:42:50.454Z",
+      "deleted": false,
+      "preamble": null,
+      "title": "═ютюёЄ№",
+      "update_date": "2022-09-30T10:43:01.546Z"
+    },
+    "model": "mainapp.news",
+  "pk": 2
+},
+  {"model": "mainapp.news", "pk": 3, "fields": {
+  "body": "╤ЄрэфрЁЄэр  эютюёЄ№ 2",
+  "body_as_markdown": false,
+  "create_date": "2022-09-30T10:45:57.707Z",
+  "deleted": false,
+  "preamble": null,
+  "title": "═ютюёЄ№ 2",
+  "update_date": "2022-09-30T10:46:01.816Z"
+}}, {"model": "mainapp.news", "pk": 4, "fields": {
+  "body": "╤ЄрэфрЁЄэр  эютюёЄ№ 3",
+  "body_as_markdown": false,
+  "create_date": "2022-09-30T10:46:15.649Z",
+  "deleted": false,
+  "preamble": null,
+  "title": "═ютюёЄ№ 3",
+  "update_date": "2022-09-30T10:46:17.001Z"
+}}, {"model": "mainapp.news", "pk": 5, "fields": {
+  "body": "╤ЄрэфрЁЄэр  эютюёЄ№ 4",
+  "body_as_markdown": false,
+  "create_date": "2022-09-30T10:46:23.365Z",
+  "deleted": false,
+  "preamble": null,
+  "title": "═ютюёЄ№ 4",
+  "update_date": "2022-09-30T10:46:24.691Z"
+}}, {"model": "mainapp.news", "pk": 6, "fields": {
+  "body": "╤ЄрэфрЁЄэр  эютюёЄ№ 5",
+  "body_as_markdown": false,
+  "create_date": "2022-09-30T10:46:36.861Z",
+  "deleted": false,
+  "preamble": null,
+  "title": "═ютюёЄ№ 5",
+  "update_date": "2022-09-30T10:46:38.461Z"
+}}]

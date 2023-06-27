@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'components/top_nav_bar.html' %}
+    <div class="container-md">
+
+        
+    <div class="row justify-content-center mt-3">
+        
+        {% for p in page %}
+            <div class="card col-sm-12 col-md-6 col-lg-4 border-0">
+            <a href="{% url 'mainapp:courses_detail' pk=p.pk %}">
+                <img src='{% static p.cover %}' class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ p.name }}</h5>
+                </div>
+            </a>
+            </div>
+        {% endfor %}
+
+        
+    </div>
+    <div class="row justify-content-center align-items-center mt-3 mb-n3">
+          <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                  {% if page.has_previous %}
+                      <li class="page-item">
+                          <a class="page-link" href="?page={{ page.previous_page_number }}">previous</a>
+                      </li>
+                  {% else %}
+                      <li class="page-item disabled">
+                          <a class="page-link" href="#">previous</a>
+                      </li>
+                  {% endif %}
+                      <li class="page-item">
+                        <a class="page-link" href="#">{{ page.number }}</a>
+                      </li>
+                  {% if page.has_next %}
+                      <li class="page-item">
+                          <a class="page-link" href="?page={{ page.next_page_number }}">next</a>
+                      </li>
+                  {% else %}
+                      <li class="page-item disabled">
+                          <a class="page-link" href="#">next</a>
+                      </li>
+                  {% endif %}
+              </ul>
+          </nav>
+      </div>
+    </div>
+{% include 'components/footer.html' %}
+{% endblock content %}

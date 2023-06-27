@@ -1,1 +1,3 @@
-# GB_Django
+# Django project
+
+BraniacLMC
